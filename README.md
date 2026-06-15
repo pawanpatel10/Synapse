@@ -207,7 +207,7 @@ npm run dev
 
 ### Knowledge Connections
 
-![Knowledge Graph](./screenshots/knowledge-connections.png)
+![Knowledge Graph](./screenshots/knowledge-graph.png)
 
 ### Study Analysis
 
