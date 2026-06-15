@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react';
+import NoteList from "../components/notes/NoteList.jsx";
 import SiteHeader from '../components/SiteHeader.jsx'
 import api from '../services/api.js'
 import { useAuth } from '../context/AuthContext.jsx'
@@ -42,7 +43,7 @@ const DashboardPage = () => {
     ]
   }, [notes])
 
-  const recentNotes = useMemo(() => notes.slice(0, 3), [notes])
+  const recentNotes = useMemo(() => notes.slice(0, 10), [notes])
 
   return (
     <main className="app-shell site-page">
@@ -77,17 +78,7 @@ const DashboardPage = () => {
             {loading ? (
               <p>Loading dashboard data...</p>
             ) : recentNotes.length > 0 ? (
-              <div className="note-list">
-                {recentNotes.map((note) => (
-                  <div className="note-item" key={note._id}>
-                    <strong>{note.title}</strong>
-                    <p>{note.content}</p>
-                    <p className="note-meta">
-                      {note.tags?.length ? note.tags.map((tag) => `#${tag}`).join(' ') : 'No tags yet'}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <NoteList notes={recentNotes} loadingNotes={loading} compact={true} />
             ) : (
               <p>No notes created yet.</p>
             )}

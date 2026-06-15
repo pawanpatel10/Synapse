@@ -4,8 +4,11 @@ import { useAuth } from './context/AuthContext.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import EditNotePage from './pages/EditNotePage.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
 import NotesPage from './pages/NotesPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'
+import GraphPage from './pages/GraphPage.jsx'
+import AnalyticsPage from './pages/AnalyticsPage.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 
 function App() {
@@ -28,6 +31,14 @@ function App() {
         }
       />
       <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/notes"
         element={
           <ProtectedRoute>
@@ -40,6 +51,22 @@ function App() {
         element={
           <ProtectedRoute>
             <EditNotePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/graph"
+        element={
+          <ProtectedRoute>
+            <GraphPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics"
+        element={
+          <ProtectedRoute>
+            <AnalyticsPage />
           </ProtectedRoute>
         }
       />
