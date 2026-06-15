@@ -273,18 +273,6 @@ POST /api/notes/:id/summarize
 
 ---
 
-## 📈 Resume Highlights
-
-- Built a full-stack AI-powered collaborative knowledge management platform.
-- Implemented JWT-based authentication and secure authorization.
-- Developed a rich text editor using TipTap.
-- Integrated Socket.IO for real-time collaborative note editing.
-- Built AI-powered note summarization capabilities.
-- Designed tag-based knowledge connections between related notes.
-- Developed scalable REST APIs using Express and MongoDB.
-- Implemented advanced search across notes, tags, and collaborators.
-
----
 
 ## 🔮 Future Improvements
 
@@ -301,7 +289,4 @@ POST /api/notes/:id/summarize
 
 **Pawan Patel**
 
-Aspiring Software Development Engineer
 
----
-⭐ Star the repository if you found it useful.
