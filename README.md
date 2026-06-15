@@ -200,21 +200,18 @@ npm run dev
 
 ![Editor](./screenshots/editor.png)
 
-### Real-Time Collaboration
-
-![Collaboration](./screenshots/collaboration.png)
-
 ### AI Summarization
 
 ![AI Summary](./screenshots/ai-summary.png)
 
-### Search System
-
-![Search](./screenshots/search.png)
 
 ### Knowledge Connections
 
 ![Knowledge Graph](./screenshots/knowledge-connections.png)
+
+### Study Analysis
+
+![Analysis](./screenshots/analysis.png)
 
 ---
 
