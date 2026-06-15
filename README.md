@@ -1,8 +1,8 @@
 # Synapse
 
-> A collaborative knowledge management platform built using the MERN stack.
+> An AI-powered collaborative knowledge management platform built with the MERN stack.
 
-Synapse helps users create, organize, search, and share notes efficiently. It provides rich text editing, note collaboration, tag-based knowledge connections, and an intuitive workspace for managing information.
+Synapse helps users create, organize, connect, summarize, and collaborate on notes in real time. It combines rich note-taking, intelligent knowledge discovery, AI-generated summaries, and live collaboration into a unified workspace.
 
 ---
 
@@ -10,39 +10,55 @@ Synapse helps users create, organize, search, and share notes efficiently. It pr
 
 ### 🔐 Authentication & Security
 
-- User Registration & Login
 - JWT Authentication
+- Secure Password Hashing (bcrypt)
 - Protected Routes
-- Secure Password Hashing with bcrypt
+- User-specific Data Access
 
-### 📝 Notes Management
+---
 
-- Create Notes
-- Edit Notes
-- Delete Notes
-- Rich Text Editing with TipTap
-- Tag Support
-- Auto-organized Workspace
+### 📝 Rich Note Taking
 
-### 🤝 Collaboration
+- Create, Edit, Delete Notes
+- Rich Text Editor using TipTap
+- Headings, Lists, Formatting
+- Tag Management
+- Organized Note Workspace
 
-- Add Collaborators to Notes
-- Shared Note Access
+---
+
+### 🤝 Real-Time Collaboration
+
+- Multi-user Collaboration
+- Live Updates using Socket.IO
+- Shared Notes
 - Collaborator Management
-- Access Control System
+- Permission-Based Access
 
-### 🔍 Search & Discovery
+---
+
+### 🔍 Smart Search
 
 - Search by Title
 - Search by Content
 - Search by Tags
 - Search by Collaborators
+- Instant Filtering
 
-### 🧠 Knowledge Connections
+---
 
-- Automatically connects notes using common tags
-- Related Notes Suggestions
-- Knowledge Discovery through shared topics
+### 🧠 AI Note Summarization
+
+- AI-generated Summaries
+- Key Information Extraction
+- Quick Note Overview
+- Productivity Enhancement
+
+---
+
+### 🌐 Knowledge Connections
+
+Synapse automatically connects notes through shared tags.
 
 Example:
 
@@ -56,11 +72,18 @@ Note B:
 - Hooks
 - State Management
 
-Since both notes contain the **React** tag, Synapse identifies them as related notes.
+Because both notes contain the **React** tag, Synapse links them as related content.
+
+Features:
+
+- Related Note Discovery
+- Tag-Based Knowledge Network
+- Connected Learning Experience
+- Knowledge Exploration
 
 ---
 
-## 🛠️ Tech Stack
+## 🏗️ Tech Stack
 
 ### Frontend
 
@@ -68,8 +91,8 @@ Since both notes contain the **React** tag, Synapse identifies them as related n
 - React Router
 - Context API
 - Axios
-- TipTap Editor
-- CSS
+- TipTap
+- Socket.IO Client
 
 ### Backend
 
@@ -79,15 +102,16 @@ Since both notes contain the **React** tag, Synapse identifies them as related n
 - Mongoose
 - JWT
 - bcrypt
+- Socket.IO
+
+### AI
+
+- AI-powered note summarization
+- LLM integration
 
 ### Database
 
 - MongoDB Atlas
-
-### Deployment
-
-- Vercel
-- Render / Railway
 
 ---
 
@@ -103,15 +127,14 @@ Synapse
 │   │   ├── context
 │   │   ├── services
 │   │   └── routes
-│   │
-│   └── public
 │
 ├── backend
-│   ├── config
 │   ├── controllers
 │   ├── middleware
 │   ├── models
-│   └── routes
+│   ├── routes
+│   ├── services
+│   └── sockets
 │
 └── README.md
 ```
@@ -127,7 +150,7 @@ git clone https://github.com/yourusername/synapse.git
 cd synapse
 ```
 
-### Backend Setup
+### Backend
 
 ```bash
 cd backend
@@ -140,15 +163,16 @@ Create `.env`
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+AI_API_KEY=your_api_key
 ```
 
-Run backend:
+Start backend:
 
 ```bash
 npm run dev
 ```
 
-### Frontend Setup
+### Frontend
 
 ```bash
 cd frontend
@@ -158,14 +182,50 @@ npm run dev
 
 ---
 
-## 📡 API Endpoints
+## 📸 Screenshots
+
+### Login Page
+
+![Login](./screenshots/login.png)
+
+### Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
+### Notes Workspace
+
+![Notes](./screenshots/notes-workspace.png)
+
+### Rich Text Editor
+
+![Editor](./screenshots/editor.png)
+
+### Real-Time Collaboration
+
+![Collaboration](./screenshots/collaboration.png)
+
+### AI Summarization
+
+![AI Summary](./screenshots/ai-summary.png)
+
+### Search System
+
+![Search](./screenshots/search.png)
+
+### Knowledge Connections
+
+![Knowledge Graph](./screenshots/knowledge-connections.png)
+
+---
+
+## 🔌 API Endpoints
 
 ### Authentication
 
 ```http
 POST /api/auth/register
 POST /api/auth/login
-GET  /api/auth/profile
+GET /api/auth/profile
 ```
 
 ### Notes
@@ -178,95 +238,62 @@ PUT    /api/notes/:id
 DELETE /api/notes/:id
 ```
 
----
+### Collaboration
 
-## 📸 Screenshots
+```http
+POST /api/notes/:id/share
+GET  /api/notes/:id/collaborators
+```
 
-### Login Page
+### AI
 
-![Login Page](./screenshots/login.png)
-
----
-
-### Register Page
-
-![Register Page](./screenshots/register.png)
-
----
-
-### Dashboard
-
-![Dashboard](./screenshots/dashboard.png)
-
----
-
-### Notes Workspace
-
-![Notes Workspace](./screenshots/notes-workspace.png)
-
----
-
-### Rich Text Editor
-
-![Rich Text Editor](./screenshots/editor.png)
-
----
-
-### Search Notes
-
-![Search Notes](./screenshots/search.png)
-
----
-
-### Collaborators Panel
-
-![Collaborators](./screenshots/collaborators.png)
-
----
-
-### Edit Note
-
-![Edit Note](./screenshots/edit-note.png)
-
----
-
-## 🏗️ Architecture
-
-```text
-React Frontend
-      |
-      |
-      v
- Express API
-      |
-      |
-      v
-   MongoDB
+```http
+POST /api/notes/:id/summarize
 ```
 
 ---
 
-## ✨ Resume Highlights
+## 🏛️ Architecture
 
-- Built a full-stack collaborative note-taking platform using MERN Stack.
-- Implemented JWT-based authentication and authorization.
-- Developed a rich text editor using TipTap.
-- Created tag-based knowledge connections between notes.
-- Implemented collaborator-based note sharing.
-- Designed RESTful APIs for note and user management.
-- Built advanced search functionality across notes, tags, and collaborators.
+```text
+                    ┌─────────────┐
+                    │    React    │
+                    └──────┬──────┘
+                           │
+                           ▼
+                    ┌─────────────┐
+                    │ Express API │
+                    └──────┬──────┘
+                           │
+         ┌─────────────────┼─────────────────┐
+         ▼                 ▼                 ▼
+   MongoDB Atlas      Socket.IO        AI Service
+      Storage       Collaboration     Summaries
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 📈 Resume Highlights
 
-- Real-time collaboration with Socket.IO
+- Built a full-stack AI-powered collaborative knowledge management platform.
+- Implemented JWT-based authentication and secure authorization.
+- Developed a rich text editor using TipTap.
+- Integrated Socket.IO for real-time collaborative note editing.
+- Built AI-powered note summarization capabilities.
+- Designed tag-based knowledge connections between related notes.
+- Developed scalable REST APIs using Express and MongoDB.
+- Implemented advanced search across notes, tags, and collaborators.
+
+---
+
+## 🔮 Future Improvements
+
 - Version History
-- AI Note Summarization
-- Semantic Search
-- Workspace Support
-- PDF Export
-- Activity Tracking
+- Semantic Search using Embeddings
+- AI Chat with Notes
+- Workspace Management
+- Document Export (PDF/Markdown)
+- Mobile Application
 
 ---
 
@@ -274,8 +301,7 @@ React Frontend
 
 **Pawan Patel**
 
-B.Tech Student | Aspiring Software Development Engineer
+Aspiring Software Development Engineer
 
 ---
-
 ⭐ Star the repository if you found it useful.
